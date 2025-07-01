@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Cute BMI Calculator</title>
+  <style>
+    body {
+      font-family: 'Comic Sans MS', cursive, sans-serif;
+      background-color: #ffe6f0;
+      color: #ff69b4;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      height: 100vh;
+      margin: 0;
+    }
+
+    h1 {
+      font-size: 2.5em;
+      margin-bottom: 20px;
+      text-shadow: 2px 2px #ffb6c1;
+    }
+
+    input {
+      padding: 10px;
+      margin: 10px;
+      border-radius: 10px;
+      border: 2px solid #ffb6c1;
+      background-color: #fff0f5;
+    }
+
+    button {
+      background-color: #ffb6c1;
+      color: white;
+      border: none;
+      padding: 10px 20px;
+      font-size: 1em;
+      border-radius: 20px;
+      cursor: pointer;
+      margin-top: 10px;
+    }
+
+    .result {
+      margin-top: 20px;
+      font-size: 1.2em;
+      text-align: center;
+      max-width: 400px;
+    }
+  </style>
+</head>
+<body>
+  <h1>✨ Super Kawaii BMI Calculator ✨</h1>
+  <input type="number" id="weight" placeholder="Weight (kg)" />
+  <input type="number" id="height" placeholder="Height (cm)" />
+  <button onclick="calculateBMI()">Calculate BMI 💖</button>
+  <div class="result" id="result"></div>
+
+  <script>
+    function calculateBMI() {
+      const weight = parseFloat(document.getElementById('weight').value);
+      const height = parseFloat(document.getElementById('height').value) / 100;
+      const bmi = weight / (height * height);
+      let message = `Your BMI is ${bmi.toFixed(2)}.\n`;
+
+      if (bmi < 18.5) {
+        message += "Awww, you're a little underweight! Eat some cake, sweetie 🍰💞";
+      } else if (bmi < 25) {
+        message += "So balanced! You're a perfect marshmallow! 🌸✨";
+      } else if (bmi < 30) {
+        message += "Yay! You're officially cuddly! Welcome to the plushie club! 🧸💕";
+      } else {
+        message += "OMG! CONGRATS!!! You're a chubby superstar! 🌟💖 Stay fabulous and fluffy! 🎀";
+      }
+
+      document.getElementById('result').textContent = message;
+    }
+  </script>
+</body>
+</html>
